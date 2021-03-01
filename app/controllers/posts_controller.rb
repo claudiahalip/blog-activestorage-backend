@@ -7,7 +7,9 @@ class PostsController < ApplicationController
 
     def show
         post = Post.find(params[:id])
-        render json: post
+        featured_image = rails_blob_path(post.featured_image)
+        render json: {post: post, featured_image: featured_image}
+    
     end
 
     def create 
