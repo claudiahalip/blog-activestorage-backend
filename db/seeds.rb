@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Post.destroy_all
+test1 = Post.create(title: "title test 1", content: "content test 1")
+test1.featured_image.attach(
+    io: File.open('./public/featured_images/test1.png'),
+    filename: 'test1.png',
+    content_type: 'application/png'
+)
