@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 
     def index
-        posts = Post.all 
-        render json: posts
+        posts = Post.all.with_attached_featured_image 
+        render json: posts.to_json(include: {featured_image_attachment: {include: :blob}})
     end
 
     def show
