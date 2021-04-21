@@ -27,4 +27,10 @@ class PostsController < ApplicationController
          
         render json: {post: posts, featured_image: featured_image_url}
     end
+
+    private
+
+    def post_params
+        params.require.(:post).permit(:title, :content)
+    end
 end
